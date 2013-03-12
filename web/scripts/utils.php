@@ -186,7 +186,7 @@
     		}
             
            
-            
+      
             //Create INSERT query
         	$qry = "INSERT INTO aasc_inventory(clientaccountnumber, vin, modelyear, make, model, clientfield1, clientfield2, auctionid, pickupdate,dropoffdate,secondaryclient,
                                                   locationtype, locationname, locationaddress1, locationaddress2, locationcity, locationstate, locationzip,
@@ -324,7 +324,7 @@
             
             //query data
             $sql = "select 
-                    `ClientAccountNumber`,`VIN`,'' as `AuctionID`,date_format(`PickupDate`, '%Y%m%d'),date_format(`DropOffDate`, '%Y%m%d'),'' as `DeleteCancelRequest`,'' as `SecondaryClient`,
+                    `ClientAccountNumber`,`VIN`,'' as `AuctionID`,date_format(`PickupDate`, '%Y%m%d'),date_format(`DropOffDate`, '%Y%m%d'),'' as `DeleteCancelRequest`, `SecondaryClient`,
                     `ModelYear`,`Make`,`Model`,`Series`,`BodyStyle`,`ExteriorColor`,`Classification`,`InteriorColor`,`ClientField1`,
                     `ClientField2`,`DriversName`,`ReplacementVehicleNumber`,`ReplacementVehicleModelYear`,`ReplacementVehicleColor`, '' as Payout,
                     '' as `PayoutAmount`,`LocationType`,`LocationName`,`LocationAddress1`,`LocationAddress2`,`LocationCity`,`LocationState`,
