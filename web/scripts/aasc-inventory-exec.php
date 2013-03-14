@@ -14,10 +14,10 @@ CreateAASCInventoryItem();
         $formData->VIN = strtoupper($_POST['VIN']);
         
         $formData->ModelYear = $_POST['Year'];
-        $formData->Make = strtoupper($_POST['Make']);
-        $formData->Model = strtoupper($_POST['Model']);
-        $formData->ClientField1 = strtoupper($_POST['cust_first_name']);
-        $formData->ClientField2 = strtoupper($_POST['cust_last_name']);
+        $formData->Make = str_replace(',',' ',strtoupper($_POST['Make']));
+        $formData->Model = str_replace(',',' ',strtoupper($_POST['Model']));
+        $formData->ClientField1 = str_replace(',',' ',strtoupper($_POST['cust_first_name']));
+        $formData->ClientField2 = str_replace(',',' ',strtoupper($_POST['cust_last_name']));
   
         //$formData->AuctionID = $_POST['auctionid'];
         if ($_POST['pickupdate']==null){
@@ -34,17 +34,17 @@ CreateAASCInventoryItem();
             $formData->DropOffDate = date("Y-m-d",strtotime($_POST['dropoffdate']));
         }
          //get secondary client
-        $formData->SecondaryClient =  strtoupper ($formData->GetClientName($_POST['cc_id']).'-'.$_POST['cust_first_name'].' '.$_POST['cust_last_name']);
+        $formData->SecondaryClient =  str_replace(',',' ',strtoupper ($formData->GetClientName($_POST['cc_id']).'-'.$_POST['cust_first_name'].' '.$_POST['cust_last_name']));
         
         //$formData->SecondaryClient = "NA";
         $formData->LocationType = $_POST['locationType'];
-        $formData->LocationName = strtoupper ($_POST['locationname']);
-        $formData->locationaddress1 = strtoupper ($_POST['locationaddress1']);
-        $formData->locationaddress2 = strtoupper ($_POST['locationaddress2']);
-        $formData->LocationCity = strtoupper ($_POST['locationaddresscity']);
+        $formData->LocationName = str_replace(',',' ',strtoupper ($_POST['locationname']));
+        $formData->locationaddress1 = str_replace(',',' ',strtoupper ($_POST['locationaddress1']));
+        $formData->locationaddress2 = str_replace(',',' ',strtoupper ($_POST['locationaddress2']));
+        $formData->LocationCity = str_replace(',',' ',strtoupper ($_POST['locationaddresscity']));
         $formData->LocationState = $_POST['State'];
         $formData->LocationZip = $_POST['locationaddresszip'];
-        $formData->ContactPerson1=strtoupper($_POST['contactperson1']);
+        $formData->ContactPerson1=str_replace(',',' ',strtoupper($_POST['contactperson1']));
        // $formData->ContactPerson2=$_POST['contactperson2'];
         $formData->Phone1=$_POST['phone1'];
         //$formData->Phone2=$_POST['phone2'];
@@ -62,7 +62,7 @@ CreateAASCInventoryItem();
             $operable = '0';
         }
         $formData->VehicleIsOperable=$operable;
-        $formData->PickupOrDropOffNote=$_POST['pickupordropoffnote'];
+        $formData->PickupOrDropOffNote=str_replace(',',' ',strtoupper($_POST['pickupordropoffnote']));
         //$formData->CC_ID = $_POST['cc_id'];
         $formData->CC_ID = $_POST['cc_id'];
         //var_dump($formData);

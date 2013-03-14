@@ -109,9 +109,9 @@
            $rowdata = $rowdata."<th>Scheduled Sale Date</th><th>Hold Status</th></tr></thead><tbody>";
            
           //Create query
-        	$qry=$link->prepare("SELECT rowid, clientaccountnumber, vin, clientfield1, clientfield2, auctionid,  legalsaledate, titlesent, ClearVehicleForSale,holdstatus  FROM aasc_inventory where cc_id='$ccid' order by ".$sortexp);
+        	$qry=$link->prepare("SELECT rowid, clientaccountnumber, vin, clientfield1, clientfield2, auctionid,  legalsaledate, titlesent, ClearVehicleForSale,holdstatus,auctionstatus  FROM aasc_inventory where cc_id='$ccid' order by ".$sortexp);
         	$qry->execute();
-            $qry->bind_result($col0,$col1,$col2,$col3,$col4,$col5,$col6,$col7,$col8,$col9);
+            $qry->bind_result($col0,$col1,$col2,$col3,$col4,$col5,$col6,$col7,$col8,$col9,$col10);
             $cntr = 1;
             while($qry->fetch()) {
                 if (($cntr % 2)==0){
@@ -121,7 +121,7 @@
                 {
                     $evenodd = 'odd';
                 }
-                $rowdata = $rowdata. '<tr class="'.$evenodd.'"><td>'.$col0.'<td>'.$col1.'</td><td>'.$col2.'</td><td>'.$col5.'</td><td>'.$col3.' '.$col4.'</td><td>IMS Status</td><td>'.$col6.'</td><td>'.$col7.'</td><td>'.$col8.'</td><td>'.$col9.'</td></tr>';
+                $rowdata = $rowdata. '<tr class="'.$evenodd.'"><td>'.$col0.'<td>'.$col1.'</td><td>'.$col2.'</td><td>'.$col5.'</td><td>'.$col3.' '.$col4.'</td><td>'.$col10.'</td><td>'.$col6.'</td><td>'.$col7.'</td><td>'.$col8.'</td><td>'.$col9.'</td></tr>';
                 $cntr +=1;
             }
             $qry->close();

@@ -42,8 +42,8 @@ class DbConnection {
     $sql = "select modelyear, make, model,  dateassigned, pickupdate, datesecured, mileage, 
             vehiclegrade, vehicleisoperable, 
             framedamage,  auctioncharges, avgmmr, floorprice,   
-              solddate, saleprice from  aasc_inventory where rowid = '$rowid'";
-    //$ccid=$_SESSION['SESS_CC_ID'];
+            solddate, saleprice from  aasc_inventory where rowid = '$rowid'";
+    
  
            $rowdata = "";
            

@@ -510,18 +510,18 @@
                       // exit();
                         if ($data[24] != ''){
                         //prepare and execute
-                             echo $sqlsetstring.$sqlwherestring;
+                             echo $sqlsetstring.$sqlwherestring."\r\n";
                             $upt=$link->prepare($sqlsetstring.$sqlwherestring);
                             
                             if(!$upt){
-                              echo "prepare failed\\n";
-                              echo "error: ", $link->error, "\\n";
+                              echo "prepare failed\r\n";
+                              echo "error: ", $link->error, "\r\n";
                               echo "OBJECT NOT CREATED";
                               return;
                               }
                             else{
                                 
-                                echo "Row ".$row." updated.\\n";
+                                echo "Row ".$row." updated.\r\n";
                             }
                             $upt->execute();
                             

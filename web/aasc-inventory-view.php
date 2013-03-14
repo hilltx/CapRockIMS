@@ -57,12 +57,11 @@
 </center>
  
 <div id="dialog-confirm" title="Vechicle Extended Information">
-    <div>Year</div><div>Make</div><div>Model</div><div>Date Assigned</div><div>Date Picked Up</div><div>Date Secured</div><div>Mileage</div>
+        <div>Year</div><div>Make</div><div>Model</div><div>Date Assigned</div><div>Date Picked Up</div><div>Date Secured</div><div>Mileage</div>
         <div>Vehicle Grade</div><div>Drivable</div><div>Frame Damage</div><div>Auction Charges</div><div>AVG MMR</div>
         <div>Floor Price</div><div>Times Run</div><div>Sold Date</div><div>Sale Price</div>
         <?php include('scripts/getaascinventoryitem.php');
         GetAASCInventoryItem('1'); ?>
-
 </div> 
 
 </body>

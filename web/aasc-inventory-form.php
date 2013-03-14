@@ -284,6 +284,8 @@ $.fn.validate = function(){  //input validation plugin
      $("#fax1").mask('(999) 999-9999');    
      $("#Year").mask('9999'); 
      $("#locationaddresszip").mask('99999');
+    
+     
      // end input masks ***************
      
      //$('#result').hide();
