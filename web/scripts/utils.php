@@ -454,6 +454,21 @@
              
              */
             //Include database connection details
+            
+            //open connection db
+            
+            //for each line item
+                
+                //update row in data table
+               
+            //next
+            
+            //close  connection 
+            //clear variable for row data
+            
+            //close file
+            
+            //send notification of updates
     		require_once('config.php');
             $link = '';
             $fh = '';
@@ -504,37 +519,34 @@
                         }
                         $sqlsetstring = " update aasc_inventory set auctionid='".$data[2]."',AuctionStatus='".$auctionstatus."', TitleStatus='".$data[6]."', ScheduledSaleDate='".$data[7]."', HoldStatus='".$data[8]."', DateSecured='".$data[14]."', Mileage=".$mileage.", VehicleGrade='".$vehiclegrade."', VehicleIsOperable='".$vio."', FrameDamage='".$data[18]."', AuctionCharges='".$auctioncharges."', AvgMMR='".$avgmmr."', FloorPrice='".$data[21]."', SoldDate='".$data[22]."', SalePrice='".$data[23]."'";
                         $sqlwherestring = " where rowid=".$data[24];
-                       // var_dump($sqlsetstring.$sqlwherestring);
-                        //exit();
-                       //var_dump($data[24]);
-                      // exit();
+                     
                         if ($data[24] != ''){
                         //prepare and execute
-                             echo $sqlsetstring.$sqlwherestring."\r\n";
+                            
                             $upt=$link->prepare($sqlsetstring.$sqlwherestring);
                             
                             if(!$upt){
-                              echo "prepare failed\r\n";
-                              echo "error: ", $link->error, "\r\n";
-                              echo "OBJECT NOT CREATED";
+                              echo "Prepare failed";
+                              echo "error: ", $link->error, "";
+                              echo "File Update Incomplete.";
                               return;
                               }
                             else{
-                                
-                                echo "Row ".$row." updated.\r\n";
+                                $upt->execute();
                             }
-                            $upt->execute();
-                            
+  
                         }
                     }
-                    //echo $sqlsetstring.$sqlwherestring."\n";
+                   
                    
                     $row++;
-                    //for ($c=0; $c < $num; $c++) {
-    //                    echo $data[$c] . "<br />\n";
-    //                }
+                    
                 
                 }
+                print "<center>File import complete.<br>";
+                print "".$row." row(s) updated.<br>";
+                print "<a href='client-landing-form.php' class='button-style'>Back</a>";
+                print "</center>";
             
             }
             catch(Exception $e)
@@ -546,20 +558,7 @@
 
           
  
-            //open connection db
             
-            //for each line item
-                
-                //update row in data table
-               
-            //next
-            
-            //close  connection 
-            //clear variable for row data
-            
-            //close file
-            
-            //send notification of updates
             
             
         }

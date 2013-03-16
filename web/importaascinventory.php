@@ -1,19 +1,28 @@
-<?php include('scripts/utils.php'); 
-//$a = new cAASCInventory();
-////echo 'http://localhost//caprockims/web//'
-//$results = $a->ImportInventoryUpdateFile();
-//
-//
-//    echo "File Imported";
-//
+<?php include('scripts/utils.php'); ?>
+<html>
+<head>
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+<link href="../DataTables/media/css/demo_table.css" rel="stylesheet" type="text/css" />    
+<link href="caprockims.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css"/>
+<link href="default.css" rel="stylesheet" type="text/css" />
 
-// In PHP versions earlier than 4.1.0, $HTTP_POST_FILES should be used instead
-// of $_FILES.
+</head>
+<body>
+<div id="header-wrapper">
+<center><?php include('header.php') ?></center>
+</div>
+
+<div id="wrapper">
+
+   <div id="page">
+   <div id="content" class="sec1div">
+<?php
 
 $uploaddir = 'FileIn';
 $uploadfile = $uploaddir .'\\'. basename($_FILES['userfile']['name']);
 
-//echo '<pre>';
+
 try{
 if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
     $oImport = new cAASCInventory();
@@ -29,8 +38,21 @@ catch(Exception $e)
 {
     echo $e;
 }
-//echo 'Here is some more debugging info:';
-//print_r($_FILES);
 
-//print "</pre>";
 ?>
+
+</div></div></div>
+<center>
+<?php include('footer.php') ?>
+</center>
+
+<script>
+ $(document).ready(function() {
+    $("#content").css("display","none");
+    $("#content").css("position","relative").css("border","solid 1px").css("height","50px").css("width","100%").css("top","50%");
+    $("#content").slideDown().delay(800).navigate("client-landing-form.php");
+// Handler for .ready() called.
+})
+</script>
+</body>
+</html>

@@ -112,7 +112,7 @@ a:hover {
    
 
 }
-#sec_1_div{/*Client account number etc...*/
+#sec_1_div .sec1div {/*Client account number etc...*/
 
   -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,1);
       -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,1);

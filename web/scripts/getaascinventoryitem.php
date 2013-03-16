@@ -57,6 +57,13 @@ class DbConnection {
             $cntr = 1;
             while($qry->fetch()) {
                 
+                if ($col9=='1'){
+                    $vehop = "N";
+                }
+                else
+                {
+                    $vehop = "Y";
+                }
                 
                 $rowdata = $rowdata.'<div class="div-table-col">'.$col1.'</div>';
                 $rowdata = $rowdata.'<div class="div-table-col">'.$col2.'</div>';
@@ -66,7 +73,7 @@ class DbConnection {
                 $rowdata = $rowdata.'<div class="div-table-col">'.$col6.'</div>';
                 $rowdata = $rowdata.'<div class="div-table-col">'.$col7.'</div>';
                 $rowdata = $rowdata.'<div class="div-table-col">'.$col8.'</div>';
-                $rowdata = $rowdata.'<div class="div-table-col">'.$col9.'</div>';
+                $rowdata = $rowdata.'<div class="div-table-col">'.$vehop.'</div>';
                 $rowdata = $rowdata.'<div class="div-table-col">'.$col10.'</div>';
                 $rowdata = $rowdata.'<div class="div-table-col">'.$col11.'</div>';
                 $rowdata = $rowdata.'<div class="div-table-col">'.$col12.'</div>';
